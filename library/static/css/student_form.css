@@ -1,0 +1,4 @@
+body { font-family: Arial; background: #f4fdf4; padding: 20px; }
+form { background: white; padding: 15px; border-radius: 5px; }
+button { background: blue; color: white; border: none; padding: 8px 12px; }
+button:hover { background: darkblue; }

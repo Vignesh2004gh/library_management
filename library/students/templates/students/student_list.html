@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+    <link rel="stylesheet" href="{% static 'css/student_list.css' %}">
+</head>
+<body>
+    <h1>Students</h1>
+    <a href="{% url 'students:student_add' %}">➕ Add Student</a>
+    <form method="get">
+        <input type="text" name="q" placeholder="Search student...">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for student in students %}
+        <li>
+            {{ student.name }} ({{ student.roll_number }})
+            <a href="{% url 'students:student_detail' student.id %}">📖 Details</a> |
+            <a href="{% url 'students:student_delete_search' %}">🗑 Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

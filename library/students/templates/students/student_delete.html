@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Student</title>
+    <link rel="stylesheet" href="{% static 'css/student_delete.css' %}">
+</head>
+<body>
+    <h1>Delete Student</h1>
+    <p>Are you sure you want to delete <strong>{{ student.name }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="{% url 'students:student_list' %}">Cancel</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrow Book</title>
+    <link rel="stylesheet" href="{% static 'css/borrow_form.css' %}">
+</head>
+<body>
+    <h1>Borrow Book for {{ student.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label>Book:</label>
+        {{ form.book }}  <!-- ✅ dynamically rendered book choices -->
+        <br><br>
+
+        <label>From:</label>
+        {{ form.from_date }}  <!-- ✅ form field -->
+        <br><br>
+
+        <label>To:</label>
+        {{ form.to_date }}  <!-- ✅ form field -->
+        <br><br>
+
+        <button type="submit">Borrow</button>
+    </form>
+    
+    <a href="{% url 'students:student_detail' student.id %}">⬅ Back</a>
+</body>
+</html>

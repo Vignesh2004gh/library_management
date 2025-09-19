@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+    <link rel="stylesheet" href="{% static 'css/student_detail.css' %}">
+</head>
+<body>
+    <h1>{{ student.name }} ({{ student.roll_number }})</h1>
+    <p>Email: {{ student.email }}</p>
+
+    <h2>Borrowed Books</h2>
+    <ul>
+        {% for record in borrows %}
+        <li>
+            {{ record.book.title }} (Due: {{ record.to_date }}) - Fine: {{ record.fine }}
+            <a href="{% url 'students:delete_borrow_record' record.id %}">❌ Remove</a>
+        </li>
+        {% empty %}
+        <li>No books borrowed</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'students:borrow_book' student.id %}">➕ Borrow Book</a>
+    <br><br>
+    <a href="{% url 'students:student_list' %}">⬅ Back</a>
+</body>
+</html>

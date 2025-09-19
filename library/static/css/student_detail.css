@@ -1,0 +1,5 @@
+body { font-family: Arial; background: #fdfdfd; padding: 20px; }
+h1 { color: #333; }
+h2 { margin-top: 20px; }
+a { color: blue; }
+a:hover { text-decoration: underline; }

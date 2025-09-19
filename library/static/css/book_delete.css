@@ -1,0 +1,5 @@
+body { font-family: Arial; background: #fff3f3; padding: 20px; }
+h1 { color: red; }
+button { background: red; color: white; border: none; padding: 8px 12px; }
+button:hover { background: darkred; }
+a { margin-left: 10px; }

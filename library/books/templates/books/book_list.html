@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+    <link rel="stylesheet" href="{% static 'css/book_list.css' %}">
+</head>
+<body>
+    <h1>Book List</h1>
+    <a href="{% url 'books:book_add' %}">➕ Add Book</a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Count</th>
+            <th>Actions</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.available_copies }}</td>
+            <td>
+                <a href="{% url 'books:book_update' book.id %}">✏️ Edit</a> |
+                
+                <a href="{% url 'books:book_delete_search' %}">🗑 Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
